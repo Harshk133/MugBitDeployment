@@ -7,7 +7,7 @@
     "start": "node app.js"
   },
   "keywords": [],
-  "author": "Omii",
+  "author": "harsh",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.2",
