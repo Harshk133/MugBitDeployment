@@ -17,6 +17,10 @@ app.get("/", (req, res) => {
     res.render("page");
 });
 
+app.get("/documentation", (req, res) => {
+    res.render("documentation");
+});
+
 // This routing is for Certificate!
 // app.get("/certificate", (req, res)=>{
 //     res.render("page");
@@ -62,9 +66,9 @@ app.post('/doc', (req, res) => {
     }
   });
 
-app.get("/microproject", (req, res) => {
-    res.render("page");
-})
+// app.get("/microproject", (req, res) => {
+//     res.render("page");
+// })
 
 app.post("/microproject", (req, res) => {
     console.log(req.body);
@@ -145,7 +149,46 @@ app.post("/civilcertificate", (req, res) => {
     res.download(`./Public/files/civil/certificate/${req.body.stud_name}-civil-certificate.docx`);
 });
 
+app.get("/entccertificate", (req, res) => {
+    res.render("page");
+});
 
+app.post("/entccertificate", (req, res) => {
+    console.log(req.body);
+    try {
+        const templateFile = fs.readFileSync(path.resolve(__dirname, './Public/templateDocx/Electronic_and_Telecommunication_certificate.docx'), 'binary');
+        const zip = new PizZip(templateFile);
+        let outputDocument = new Docxtemplater(zip);
+
+        const dataToAdd = {
+            MicroprojectTitle: req.body.MicroprojectTitle,
+            yr: req.body.yr,
+            STUD_NAME: req.body.stud_name,
+            STUD_ENR: req.body.stud_enr,
+            profSirName: req.body.profSirName,
+            Subject: req.body.Subject,
+            HOD: req.body.hod,
+            Principal: req.body.Principal,
+            sem: req.body.sem,
+        };
+        outputDocument.setData(dataToAdd);
+
+        try {
+            outputDocument.render()
+            let outputDocumentBuffer = outputDocument.getZip().generate({ type: 'nodebuffer' });
+            fs.writeFileSync(path.resolve(__dirname, `./Public/files/civil/certificate/${req.body.stud_name}-electronics-and-telecommunication-certificate.docx`), outputDocumentBuffer);
+        }
+        catch (error) {
+            console.error(`ERROR Filling out Template:`);
+            console.error(error)
+        }
+
+    } catch (error) {
+        console.log("Error Loading Template:");
+        console.log(error);
+    }
+    res.download(`./Public/files/civil/certificate/${req.body.stud_name}-electronics-and-telecommunication-certificate.docx`);
+});
 
 app.listen(PORT, () => {
     console.log(`Server is running on ${PORT} port!`)

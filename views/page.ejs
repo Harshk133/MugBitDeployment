@@ -23,10 +23,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Documentation</a>
+                        <a class="nav-link" href="/documentation">Documentation</a>
                     </li>
                 </ul>
             </div>
@@ -87,6 +87,21 @@
 
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                         data-bs-target="#CivilCertificate">
+                        Use This!
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-container">
+            <div class="card" style="width: 18rem;">
+                <img src="msdocument.jfif" class="card-img-top" alt="Image">
+                <div class="card-body">
+                    <h5 class="card-title">Electronic and Telecommunication Certificate</h5>
+                    <p class="card-text">Civil Certificate For You!</p>
+
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#EATCCertificate">
                         Use This!
                     </button>
                 </div>
@@ -199,7 +214,8 @@
                     <form action="/civilcertificate" method="post">
                         <div class="mb-3">
                             <label for="microprojecttitle" class="form-label">Enter Your Microproject Title</label>
-                            <input type="text" class="form-control" id="microprojecttitle" name="MicroprojectTitle" aria-describedby="microprojecttitleHelp">
+                            <input type="text" class="form-control" id="microprojecttitle" name="MicroprojectTitle"
+                                aria-describedby="microprojecttitleHelp">
 
                             <!-- Year -->
                             <label for="yr" class="form-label">Enter Your Year</label>
@@ -223,19 +239,23 @@
                                 aria-describedby="stdName4Help">
 
                             <!-- Enrollment Numbers of Student -->
-                            <label for="STUD_ENR" class="form-label">Enter Your First Student Member Enrollment Number</label>
+                            <label for="STUD_ENR" class="form-label">Enter Your First Student Member Enrollment
+                                Number</label>
                             <input type="text" class="form-control" id="STUD_ENR" name="stud_enr"
                                 aria-describedby="STUD_ENRHelp">
 
-                            <label for="stdEnr2" class="form-label">Enter Your Second Student Member Enrollment Number</label>
+                            <label for="stdEnr2" class="form-label">Enter Your Second Student Member Enrollment
+                                Number</label>
                             <input type="text" class="form-control" id="stdEnr2" name="stdEnr2"
                                 aria-describedby="stdEnr2Help">
 
-                            <label for="stdEnr3" class="form-label">Enter Your Third Student Member Enrollment Number</label>
+                            <label for="stdEnr3" class="form-label">Enter Your Third Student Member Enrollment
+                                Number</label>
                             <input type="text" class="form-control" id="stdEnr3" name="stdEnr3"
                                 aria-describedby="stdEnr3Help">
 
-                            <label for="stdEnr4" class="form-label">Enter Your Fourth Student Member Enrollment Number</label>
+                            <label for="stdEnr4" class="form-label">Enter Your Fourth Student Member Enrollment
+                                Number</label>
                             <input type="text" class="form-control" id="stdEnr4" name="stdEnr4"
                                 aria-describedby="stdEnr4Help">
 
@@ -251,8 +271,7 @@
 
                             <!-- HOD -->
                             <label for="HOD" class="form-label">Enter Your HOD Name</label>
-                            <input type="text" class="form-control" id="HOD" name="hod"
-                                aria-describedby="HODHelp">
+                            <input type="text" class="form-control" id="HOD" name="hod" aria-describedby="HODHelp">
 
                             <!-- Principal -->
                             <label for="Principal" class="form-label">Enter Your Principal Name</label>
@@ -261,8 +280,70 @@
 
                             <!-- Semester -->
                             <label for="sem" class="form-label">Enter Your Sememster</label>
-                            <input type="text" class="form-control" id="sem" name="sem"
-                                aria-describedby="semHelp">
+                            <input type="text" class="form-control" id="sem" name="sem" aria-describedby="semHelp">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Done</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="EATCCertificate" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Certificate</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="/entccertificate" method="post" id="myForm">
+                        <div class="mb-3">
+                            <label for="microprojecttitle" class="form-label">Enter Your Microproject Title</label>
+                            <input type="text" class="form-control" id="microprojecttitle" name="MicroprojectTitle"
+                                aria-describedby="microprojecttitleHelp">
+
+                            <!-- Year -->
+                            <label for="yr" class="form-label">Enter Your Year</label>
+                            <input type="text" class="form-control" id="yr" name="yr" aria-describedby="yrHelp">
+
+                            <!-- Names Of Students -->
+                            <label for="STUD_NAME" class="form-label">Enter Your First Student Member Name</label>
+                            <input type="text" class="form-control" id="STUD_NAME" name="stud_name"
+                                aria-describedby="STUD_NAMEHelp">
+
+                            <!-- Enrollment Numbers of Student -->
+                            <label for="STUD_ENR" class="form-label">Enter Your First Student Member Enrollment
+                                Number</label>
+                            <input type="text" class="form-control" id="STUD_ENR" name="stud_enr"
+                                aria-describedby="STUD_ENRHelp">
+
+                            <!-- Name of Profesor -->
+                            <label for="profSirName" class="form-label">Enter Your Teacher Number</label>
+                            <input type="text" class="form-control" id="profSirName" name="profSirName"
+                                aria-describedby="profSirNameHelp">
+
+                            <!-- Subject -->
+                            <label for="Subject" class="form-label">Enter Your Subject With Code</label>
+                            <input type="text" class="form-control" id="Subject" name="Subject"
+                                aria-describedby="SubjectHelp">
+
+                            <!-- HOD -->
+                            <label for="HOD" class="form-label">Enter Your HOD Name</label>
+                            <input type="text" class="form-control" id="HOD" name="hod" aria-describedby="HODHelp">
+
+                            <!-- Principal -->
+                            <label for="Principal" class="form-label">Enter Your Principal Name</label>
+                            <input type="text" class="form-control" id="Principal" name="Principal"
+                                aria-describedby="PrincipalHelp">
+
+                            <!-- Semester -->
+                            <label for="sem" class="form-label">Enter Your Sememster</label>
+                            <input type="text" class="form-control" id="sem" name="sem" aria-describedby="semHelp">
                         </div>
                         <button type="submit" class="btn btn-primary">Done</button>
                     </form>
@@ -279,6 +360,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
         crossorigin="anonymous"></script>
+
 
     <script>
         document.getElementById("id").textContent = new Date().getFullYear();
